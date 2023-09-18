@@ -1,0 +1,12 @@
+server:
+  port: 8103
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: openApi-interface
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.101.204.13:8848

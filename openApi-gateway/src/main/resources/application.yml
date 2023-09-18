@@ -1,0 +1,31 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: openApi-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - AddResponseHeader=source, molloi
+      routes:
+        - id: openApi-interface
+          uri: http://47.101.204.13:8103
+          predicates:
+            - Path=/api/**
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://47.101.204.13:8848

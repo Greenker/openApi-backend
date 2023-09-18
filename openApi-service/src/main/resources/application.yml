@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: openApi-backend
+  # DataSource Config
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.101.204.13:3306/open-api
+    username: root
+    password: 123456
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  # session 失效时间（分钟）
+  session:
+    timeout: 86400
+    #    store-type: none
+    store-type: redis
+  # redis 配置
+  redis:
+    port: 6377
+    host: 47.101.204.13
+    database: 0
+server:
+  port: 8101
+  servlet:
+    context-path: /api
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+#api:
+#  client:
+#    access-key: a752d141a1e6e8905c0b13d7fa614f53
+#    secret-key: 3f90f73f7fd12892ec6b7cba7975b17a
+
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://47.101.204.13:8848
