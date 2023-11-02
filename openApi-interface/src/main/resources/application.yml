@@ -9,4 +9,18 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 47.101.204.13:8848
+        server-addr: localhost:8848
+
+api:
+  gaode:
+    key: 3eed07e21516dfd811a63c2d17e07827
+
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848

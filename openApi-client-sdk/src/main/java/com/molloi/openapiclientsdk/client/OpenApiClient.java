@@ -19,7 +19,7 @@ import static com.molloi.openapiclientsdk.utils.SignUtil.generatorSign;
  */
 public class OpenApiClient {
 
-    private static final String GATEWAY_HOST = "http://47.101.204.13:8100";
+    private static final String GATEWAY_HOST = "http://localhost:8100";
 
     private final String accessKey;
     private final String secretKey;
@@ -61,6 +61,15 @@ public class OpenApiClient {
                 .addHeaders(getHeaderMap(json))
                 .execute();
         System.out.println(response.getStatus());
+        return response.body();
+    }
+
+    public String getWeatherByCityName(String name) {
+        String url = GATEWAY_HOST + "/api/city/getWeatherByCityName?name=" + name;
+        HttpResponse response = HttpRequest.get(url)
+                .body(name)
+                .addHeaders(getHeaderMap(name))
+                .execute();
         return response.body();
     }
 

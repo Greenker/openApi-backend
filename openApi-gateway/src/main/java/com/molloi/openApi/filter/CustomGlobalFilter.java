@@ -39,7 +39,7 @@ import static com.molloi.openapiclientsdk.utils.SignUtil.generatorSign;
 @Component
 public class CustomGlobalFilter implements GlobalFilter, Ordered {
 
-    public static final String INTERFACE_HOST = "http://47.101.204.13:8103";
+    public static final String INTERFACE_HOST = "http://localhost:8103";
     private static final List<String> IP_WHITE_LIST = Arrays.asList("127.0.0.1");
     @DubboReference
     private InnerUserService innerUserService;
@@ -72,7 +72,8 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         HttpHeaders headers = request.getHeaders();
         String accessKey = headers.getFirst("accessKey");
         String nonce = headers.getFirst("nonce");
-        String body = headers.getFirst("body");
+        String body = request.getQueryParams().getFirst("name");
+//        String body = headers.getFirst("body");
         String timestamp = headers.getFirst("timestamp");
         String sign = headers.getFirst("sign");
         // 从数据库中获取accessKey作比较

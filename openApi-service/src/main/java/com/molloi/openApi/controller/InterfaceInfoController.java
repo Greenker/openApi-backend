@@ -294,15 +294,18 @@ public class InterfaceInfoController {
         // TODO 根据接口id调用不同接口
         String url = oldInterfaceInfo.getUrl();
         String result = null;
-        if ("http://47.101.204.13:8103/api/name/get".equals(url)) {
+        if ("http://localhost:8103/api/name/get".equals(url)) {
             result = tempClient.getNameByGet(userRequestParams);
         }
-        if ("http://47.101.204.13:8103/api/name/post".equals(url)) {
+        if ("http://localhost:8103/api/name/post".equals(url)) {
             result = tempClient.getNameByPost(userRequestParams);
         }
-        if ("http://47.101.204.13:8103/api/name/userJson".equals(url)) {
+        if ("http://localhost:8103/api/name/userJson".equals(url)) {
             com.molloi.openapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.molloi.openapiclientsdk.model.User.class);
             result = tempClient.getUserNameByPost(user);
+        }
+        if ("http://localhost:8103/api/city/getWeatherByCityName".equals(url)) {
+            result = tempClient.getWeatherByCityName(userRequestParams);
         }
         return ResultUtils.success(result);
     }

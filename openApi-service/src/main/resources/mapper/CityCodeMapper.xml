@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.molloi.openApi.mapper.CityCodeMapper">
+
+    <resultMap id="BaseResultMap" type="com.molloi.openapiclientsdk.model.CityCode">
+        <result property="adcode" column="adcode" jdbcType="INTEGER"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="code" column="code" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        adcode,city,code
+    </sql>
+</mapper>

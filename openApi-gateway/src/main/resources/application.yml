@@ -9,7 +9,7 @@ spring:
         - AddResponseHeader=source, molloi
       routes:
         - id: openApi-interface
-          uri: http://47.101.204.13:8103
+          uri: http://localhost:8103
           predicates:
             - Path=/api/**
 
@@ -28,4 +28,4 @@ dubbo:
     port: -1
   registry:
     id: nacos-registry
-    address: nacos://47.101.204.13:8848
+    address: nacos://localhost:8848

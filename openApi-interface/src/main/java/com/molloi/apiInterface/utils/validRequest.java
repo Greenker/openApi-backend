@@ -18,7 +18,7 @@ public class validRequest {
         if (StringUtils.isAnyBlank(host, sign, accessKey)) {
             return false;
         }
-        if ("47.101.204.13:8100".equals(host)) {
+        if ("localhost:8100".equals(host)) {
             return false;
         }
         return true;
